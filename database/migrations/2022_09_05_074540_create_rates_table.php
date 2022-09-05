@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->float('score');
+            $table->integer('userId');
+            $table->integer('productId');
         });
     }
 

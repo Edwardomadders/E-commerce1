@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('transactionId');
+            $table->double('totalPrice');
+            $table->string('paymentMethod');
         });
     }
 

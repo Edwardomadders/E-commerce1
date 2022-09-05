@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('ProductId');
+            $table->integer('userId');
+            $table->integer('totalNumberOfProducts');
+            $table->integer('paymentId');
         });
     }
 
