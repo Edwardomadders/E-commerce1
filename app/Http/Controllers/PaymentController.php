@@ -11,12 +11,10 @@ class PaymentController extends Controller
 {
     public function browse()
     {
-
     }
 
     public function read()
     {
-
     }
 
     public function edit(Request $request, $itemId)
@@ -29,30 +27,27 @@ class PaymentController extends Controller
         $validate =  validator($request->all([
             "transactionId" => "required|string",
             "totalPrice" => "required|number",
-            "paymentMethod" =>"required|string"
+            "paymentMethod" => "required|string"
         ]));
-        if(!$validate)
-        {
-            return response()->json(["message"=>"validation error","error"=>$validate()->errors()]);
+        if (!$validate) {
+            return response()->json(["message" => "validation error", "error" => $validate()->errors()]);
         }
         $payment = Payment::create(
             [
-                "transactionId"=>$request->transactionId,
-                "totalPrice"=>$request->totalPrice,
-                "paymentMethod"=>$request->paymentMethod,
+                "transactionId" => $request->transactionId,
+                "totalPrice" => $request->totalPrice,
+                "paymentMethod" => $request->paymentMethod,
             ]
-            );
+        );
 
-            return response()->json(["message" =>"Payment added", "payment"=>$payment]);
+        return response()->json(["message" => "Payment added", "payment" => $payment]);
     }
-
+    
     public function delete()
     {
-
     }
 
     public function receipt()
     {
-
     }
 }
